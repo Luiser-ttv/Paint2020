@@ -4,6 +4,7 @@ package codigo;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -11,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -38,9 +40,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     BasicStroke trazo1 = new BasicStroke(15);
     BasicStroke trazo2 = new BasicStroke(15, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, new float[]{10.0f}, 0.0f);
 
-    /**
-     * Creates new form VentanaPaint
-     */
+    
     public VentanaPaint() {
 	initComponents();
 	jPanel2.setBackground(colorSeleccionado);
@@ -100,7 +100,7 @@ public class VentanaPaint extends javax.swing.JFrame {
 	bufferGraphics.drawImage(buffer2, 0, 0, null);
 	buffer2Graphics.drawImage(buffer2, 0, 0, null);
     }
-
+    //Public void para crear el metodo de guardado.
     private void guarda() {
 	int seleccion = jFileChooser1.showSaveDialog(this);
 	if (seleccion == JFileChooser.APPROVE_OPTION) {
@@ -116,7 +116,7 @@ public class VentanaPaint extends javax.swing.JFrame {
 	    }
 	}
     }
-
+    //Public void para crear el metodo de carga.
     private void carga() {
 	int seleccion = jFileChooser1.showOpenDialog(this);
 	if (seleccion == JFileChooser.APPROVE_OPTION) {
@@ -186,6 +186,8 @@ public class VentanaPaint extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jDialog1.setResizable(false);
 
@@ -418,6 +420,11 @@ public class VentanaPaint extends javax.swing.JFrame {
                 jToggleButton8MousePressed(evt);
             }
         });
+        jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton8ActionPerformed(evt);
+            }
+        });
 
         jToggleButton9.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
         jToggleButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Goma.png"))); // NOI18N
@@ -461,6 +468,18 @@ public class VentanaPaint extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Extras");
+
+        jMenuItem3.setText("Github");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -729,7 +748,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton8MousePressed
 
     private void jToggleButton9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton9MousePressed
-	//Seleciona el goma
+	//Seleciona la goma
 	formaSeleccionada = 677;
 	deSelecciona();
     }//GEN-LAST:event_jToggleButton9MousePressed
@@ -747,8 +766,22 @@ public class VentanaPaint extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
-       
+        
     }//GEN-LAST:event_jToggleButton9ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        try {
+  Desktop desktop = java.awt.Desktop.getDesktop();
+  URI oURL = new URI("https://github.com/Luiser-ttv/Paint2020");
+  desktop.browse(oURL);
+} catch (Exception e) {
+  e.printStackTrace();
+}
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -797,9 +830,11 @@ public class VentanaPaint extends javax.swing.JFrame {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSlider jSlider1;
