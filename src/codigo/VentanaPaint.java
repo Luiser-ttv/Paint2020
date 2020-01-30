@@ -184,6 +184,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         jToggleButton9 = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -297,7 +298,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         });
 
         jToggleButton3.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jToggleButton3.setText("T");
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Triangle.png")));
         jToggleButton3.setMaximumSize(new java.awt.Dimension(36, 36));
         jToggleButton3.setMinimumSize(new java.awt.Dimension(36, 36));
         jToggleButton3.setPreferredSize(new java.awt.Dimension(36, 36));
@@ -306,9 +307,14 @@ public class VentanaPaint extends javax.swing.JFrame {
                 jToggleButton3MousePressed(evt);
             }
         });
+        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton3ActionPerformed(evt);
+            }
+        });
 
         jToggleButton4.setFont(new java.awt.Font("Dialog", 1, 8)); // NOI18N
-        jToggleButton4.setText("P");
+        jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pentagon.png")));
         jToggleButton4.setMaximumSize(new java.awt.Dimension(36, 36));
         jToggleButton4.setMinimumSize(new java.awt.Dimension(36, 36));
         jToggleButton4.setPreferredSize(new java.awt.Dimension(36, 36));
@@ -449,6 +455,15 @@ public class VentanaPaint extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setText("New");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Guardar");
         jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -563,6 +578,9 @@ public class VentanaPaint extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jToggleButton3.getAccessibleContext().setAccessibleName("");
+        jToggleButton4.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -783,6 +801,18 @@ public class VentanaPaint extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton8ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+         bufferGraphics.setColor(Color.WHITE);
+        bufferGraphics.fillRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
+        bufferGraphics.setColor(Color.WHITE);
+        bufferGraphics.fillRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
+        jPanelGraphics.drawImage(buffer, 0, 0, null);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -835,6 +865,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSlider jSlider1;
